@@ -1,0 +1,6 @@
+# The active toolchain (rustup override) is windows-gnullvm, matching the
+# installed LLVM-MinGW UCRT toolchain. crt-static statically links the C
+# runtime + libunwind so the EXE is self-contained and portable to other
+# Windows 10/11 PCs (no llvm-mingw DLLs required).
+[target.x86_64-pc-windows-gnullvm]
+rustflags = ["-C", "target-feature=+crt-static"]
